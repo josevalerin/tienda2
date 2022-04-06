@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header/>
+        <h2>Datos de Persona</h2>
+        <a href="@{/}">Regresar</a>
+        <br> 
+        <form th:action="@{/guardarPersona}"
+              method="post"
+              th:object="${persona}">
+            <input type="hidden" name="idPersona" th:field="*{id}"/>
+            <label for="nombre">Nombre:</label>
+            <input type="text"th:field="*{nombre}"/>
+            <br>
+            <label for="apellido 1">Apellido 1:</label>
+            <input type="text"th:field="*{apellido1}"/>
+            <br>
+            <label for="apellido 2">Apellido 2:</label>
+            <input type="text"th:field="*{apellido2}"/>
+            <br>
+            <label for="correo">Correo:</label>
+            <input type="text"th:field="*{email}"/>
+            <br>
+            <label for="telefono">Telefono</label>
+            <input type="text"th:field="*{telefono}"/>
+            <br>
+            <label for="pais">Pais:</label>
+            <input type="text"th:field="*{pais}"/>
+            <br>
+            <button type="submit"class="btn btn-primary"value="Guardar">Submit<button/>
+        </form>
+        <footer/>
+
+    </body>
+</html>

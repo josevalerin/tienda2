@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>Este es nuestro index</title>
+
+    </head>
+
+    <body>
+
+        <!-- div= division -->
+
+        <div>
+            <ol>
+
+                <li> progra 1 </li>
+                <li> progra 2 </li>
+                <li> progra 3 </li>
+                <li> progra 4 </li> 
+
+            </ol>
+
+            <!-- unorderlist -->
+            <ul>
+
+                <li> progra 1 </li>
+                <li> progra 2 </li>
+                <li> progra 3 </li>
+                <li> progra 4 </li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <p> Este curso es super genial, <br> me gusta mucho html</p>
+
+            <!-- heading -->
+
+            <h1> hola muchachos </h1>
+            <h2> vamos mundo </h2>
+            <h3> hola muchachos </h3> 
+
+        </div>
+
+
+        <!-- img tiene 2 atributos requerdios, src y alt -->
+
+        <!-- src = ruta de la imagen, alt = si no logra cargar la imagen, muestra texto -->
+
+        <img src="src" alt="alt"/>
+
+        <img src="images/logo.png">
+
+        <header th:replace="layout/plantilla :: header"/> 
+            </header>
+            <h1>Listado de Personas</h1>
+            <a th:href="@/nuevaPersona}">Nuevo Cliente</a>
+            <div th:if="${personas !=null and !personas.empty}">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <td>Eliminar</td>
+                            <th>Modificar</th>
+
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr th:each="persona: ${personas}">
+                        <td th:text="${persona.nombre}"></td>
+                        <td th:text="${persona.apellidos}"></td>
+                        <td th:text="${persona.correo}"></td>
+                        <td th:text="${persona.telefono}"></td>
+                        <td><a th:href="@{/eliminarPersona/} + ${persona.idPersona}">Eliminar</a></td>
+                        <td><a th:href="@{/modificarPersona/} + ${persona.idPersona}">Modificar</a></td>
+                        </tr>
+                    </tbody> 
+                </table>
+ 
+            </div>
+            <div th:if="${personas ==null or personas.empty}">
+                No tenemos lista de personas que mostrar...
+                
+            </div>
+            <footer th:replace="layout/plantilla :: footer"/>
+                
+            </footer>
+            
+    </body>
+</html>
