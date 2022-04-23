@@ -1,20 +1,19 @@
 
 package com.tienda.service;
 
-import com.tienda.entity.Persona;
+
+import com.tienda.entity.Person;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IPersonaService {
 
-    public List<Persona> getPersona();
-    public void savePersona(Persona persona);
-    public Persona findPersona(Persona persona);
-    public void deletePersona(Persona persona);
-
-    public Persona find(Persona persona);
-
+    public List<Person> getPersona();
+    public void savePersona(Person persona);
+    public Person find(Person persona);
     public void deletePersona(Long idPersona);
+    public Person getPersonById(Long idPersona);
+    public Person findByNombre (String nombre);
 
 }

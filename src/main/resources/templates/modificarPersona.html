@@ -1,20 +1,22 @@
-<html>
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head">
+
+
     </head>
     <body>
-        <header/>
+        <header th:replace="plantilla/template::header">
+        </header>
         <h2>Datos de Persona</h2>
         <a href="@{/}">Regresar</a>
         <br> 
         <form th:action="@{/guardarPersona}"
+              
               method="post"
               th:object="${persona}">
             <input type="hidden" name="idPersona" th:field="*{id}"/>
             <label for="nombre">Nombre:</label>
-            <input type="text"th:field="*{nombre}"/>
+            <input type="text"th:field="*{cliente.nombre}"/>
             <br>
             <label for="apellido 1">Apellido 1:</label>
             <input type="text"th:field="*{apellido1}"/>
@@ -29,11 +31,21 @@
             <input type="text"th:field="*{telefono}"/>
             <br>
             <label for="pais">Pais:</label>
-            <input type="text"th:field="*{pais}"/>
+            <select th:field="*{pais}">
+                <option th:each="p:${paises}"
+                        th:value="${p.id}"
+                        th:text="${p.pais}"/>
+            </select>
             <br>
-            <button type="submit"class="btn btn-primary"value="Guardar">Submit<button/>
+            <button type="submit"class="btn btn-primary"value="Guardar">Guardar <button/>
         </form>
-        <footer/>
+        <form th:action="@{/verPersonas}"
+
+              th:object="${persona}">
+            <button type="submit"class="btn btn-primary"value="persona">Ver Personas<button/>
+
+        </form>
+        <footer th:replace="plantilla/template::footer"><footer/>
 
     </body>
 </html>

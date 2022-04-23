@@ -1,7 +1,8 @@
 
 package com.tienda.service;
 
-import com.tienda.entity.Persona;
+
+import com.tienda.entity.Person;
 import com.tienda.repository.PersonaRepository;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,38 +16,34 @@ public class PersonaService implements IPersonaService{
     
     @Override   
     @Transactional(readOnly=true)
-    public List<Persona> getPersona() {
-        return(List<Persona>)personaRepository.findAll();
+    public List<Person> getPersona() {
+        return(List<Person>)personaRepository.findAll();
     }
 
     @Override
     @Transactional
-    public void savePersona(Persona persona) {
+    public void savePersona(Person persona) {
         personaRepository.save(persona);
-    }
-     @Override
-     @Transactional
-    public void deletePersona(Persona persona) {
-       personaRepository.delete(persona);
-    }
-
-
-    @Override
-    @Transactional
-    public Persona findPersona(Persona persona) {
-        return personaRepository.findById(persona.getId()).orElse(null);
-    }
-
-    @Override
-    public Persona find(Persona persona) {
-        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public void deletePersona(Long idPersona) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-   
-    
+    @Override
+    public Person getPersonById(Long idPersona) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Person find(Person persona) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public Person findByNombre(String nombre){
+    return personaRepository.findByNombre(nombre);
+    }
+
+
 }

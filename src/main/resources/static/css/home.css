@@ -1,12 +1,5 @@
 
-/* 
-    Created on : 1 feb. 2022, 18:31:33
-    Author     : josea
-*/
-
-/*
-
-unidades de medida: vh (1/100), % respecto al elemento padre,cm
+/*unidades de medida: vh (1/100), % respecto al elemento padre,cm
 cover: Cubre todo el div, sin distorasionar la imagen
 padding: Crear un espacio entre los componentes
 box-sizing: altura=altura+border+padding
@@ -63,4 +56,7 @@ nav ul li a{
 }
 
 .imagen{
+    
+    position: 
+    
 }
